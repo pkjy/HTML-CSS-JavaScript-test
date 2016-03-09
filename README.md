@@ -1,2 +1,2 @@
-# HTML-CSS-JavaScript-test
-Just for practicing
+# front-end-skills
+Practice makes perfect.
