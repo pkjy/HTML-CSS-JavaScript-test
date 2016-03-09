@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo2_with JS</title>
+    <link rel="stylesheet" type="text/css" href="css/tremble-action.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">测试1</a></li>
+            <li><a href="#">测试2</a></li>
+            <li><a href="#">测试3</a></li>
+            <li><a href="#">测试4</a></li>
+        </ul>
+    </header>
+    <!-- 原生js实现添加rotate样式 -->
+    <script type="text/javascript">
+    var lis = document.getElementsByTagName("li");
+    for (i = 0; i < lis.length; i++) {
+        eachLi = lis[i];
+
+        function addAnimate() {
+            this.className = "tremble-action";
+        }
+
+        function removeAnimate() {
+            this.className = "";
+        }
+        eachLi.addEventListener("mouseover", addAnimate, true);
+        eachLi.addEventListener("mouseout", removeAnimate, false);
+    }
+    </script>
+</body>
+
+</html>

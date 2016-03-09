@@ -1,0 +1,159 @@
+/*一些公用样式*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fl {
+    float: right
+}
+
+header {
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul>li {
+    width: 100px;
+    height: 50px;
+    float: left;
+    list-style: none;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+/*开始抖动的CSS样式*/
+
+.tremble-action {
+    position: relative;
+    -moz-animation: tremble-action .01s linear infinite alternate;
+    -o-animation: tremble-action .01s linear infinite alternate;
+    -webkit-animation: tremble-action .01s linear infinite alternate;
+    animation: tremble-action .01s linear infinite alternate
+}
+
+@keyframes tremble-action {
+    0% {
+        transform: rotage(-1deg);
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        transform: rotage(2deg);
+        left: 1px;
+        top: 1px;
+    }
+    50% {
+        transform: rotage(1deg);
+        left: 0px;
+        top: 0px;
+    }
+    75% {
+        transform: rotage(1deg);
+        left: -1px;
+        top: -2px;
+    }
+    100% {
+        transform: rotage(-2deg);
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@-o-keyframes tremble-action {
+    0% {
+        transform: rotage(-1deg);
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        transform: rotage(2deg);
+        left: 1px;
+        top: 1px;
+    }
+    50% {
+        transform: rotage(1deg);
+        left: 0px;
+        top: 0px;
+    }
+    75% {
+        transform: rotage(1deg);
+        left: -1px;
+        top: -2px;
+    }
+    100% {
+        transform: rotage(-2deg);
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@-webkit-keyframes tremble-action {
+    0% {
+        transform: rotage(-1deg);
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        transform: rotage(2deg);
+        left: 1px;
+        top: 1px;
+    }
+    50% {
+        transform: rotage(1deg);
+        left: 0px;
+        top: 0px;
+    }
+    75% {
+        transform: rotage(1deg);
+        left: -1px;
+        top: -2px;
+    }
+    100% {
+        transform: rotage(-2deg);
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@-moz-keyframes tremble-action {
+    0% {
+        transform: rotage(-1deg);
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        transform: rotage(2deg);
+        left: 1px;
+        top: 1px;
+    }
+    50% {
+        transform: rotage(1deg);
+        left: 0px;
+        top: 0px;
+    }
+    75% {
+        transform: rotage(1deg);
+        left: -1px;
+        top: -2px;
+    }
+    100% {
+        transform: rotage(-2deg);
+        left: 0px;
+        top: 0px;
+    }
+}
+
+
+/*结束抖动的CCS样式*/
