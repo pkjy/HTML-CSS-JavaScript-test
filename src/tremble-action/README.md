@@ -1,4 +1,4 @@
-## tremble_action
+## tremble-action
 
 拿来练习练习CSS的动画的小demo。 :)  
 
