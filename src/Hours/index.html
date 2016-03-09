@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>勤补拙(Hours)</title>
+    <link rel="stylesheet" type="text/css" href="css/merge.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--引入jQuery Mobile+jQuery UI主题文件-->
+    <link rel="stylesheet" href="themes/JQMB_UI.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+    <!-- 以下script加在jquery.mobile-1.4.5.min.js或相关SDN前面Chrome就能正常显示页面了！ -->
+    <script>
+    $(document).bind('mobileinit', function() {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    </script>
+    <!-- 以上script加在jquery.mobile-1.4.5.min.js或相关SDN前面Chrome就能正常显示页面了！ -->
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <!--自适应浏览器宽度，不允许用户手动缩放-->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 获取时间代码开始 -->
+</head>
+
+<body>
+    <!-- home -->
+    <section data-role="page" id="home">
+        <div data-role="header" class="header" data-position="true">
+            <h1 id="temp">勤补拙</h1>
+            <a id="del">删除</a>
+            <a href="#addPlans" data-icon="plus" class="add" data-iconpos="notext">新增</a>
+        </div>
+        <div data-role="content" class="home_content">
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="这里搜索" id="liBox">
+                <li>
+                    <a href="#details">
+                        <img src="images/ui-icons_222222_256x240.png" alt="自定义图片" />
+                        <h2>请将您的信息告诉我！</h2>
+                        <p>当前浏览器或者系统不支持,请换个浏览器。</p>
+                        <span class="ui-li-count">12</span>
+                    </a>
+                    <a href="#record" data-icon="grid" class="info">
+                        打卡
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div data-role="footer" class="footer" data-position="fixed">
+            <!-- <a href="#" class="fl">图表</a> -->
+            <span>少年易学老难成，一寸光阴不可轻。——朱熹《偶成诗》</span>
+        </div>
+    </section>
+    <!-- add -->
+    <section data-role="page" id="addPlans" data-theme="a">
+        <div data-role="header" class="header" data-position="true">
+            <h1>添加新的计划</h1>
+            <a href="#home">返回</a>
+            <a href="#about">关于</a>
+        </div>
+        <div data-role="content" class="add_plan_content">
+            <center>
+                <div data-role="fieldcontain" class="plan_box">
+                    计划名称
+                    <input type="text" id="planName" placeholder="请输入你的计划" type="number" autofocus /> 目标小时
+                    <input type="text" id="planTime" placeholder="输入目标小时数" /> 开始时间
+                    <input type="text" id="startTime" style="text-align:center" readonly="true" placeholder="选择开始的时间" />
+                </div>
+                <div class="two_button">
+                    <input type="submit" class="confirm_btn" data-inline="true" value="确定" id="confirmBtn" />
+                </div>
+            </center>
+        </div>
+        <div data-role="footer" class="footer" data-position="fixed">
+            <span>一万年太久，只争朝夕。——毛泽东</span>
+        </div>
+    </section>
+    <!-- details -->
+    <section data-role="page" id="details" data-add-back-btn="true" data-theme="a">
+        <div data-role="header" class="header" data-position="true">
+            <h1>详情</h1>
+            <a href="#home">返回</a>
+            <a href="#addPlans" data-icon="plus" class="add" data-iconpos="notext">新增</a>
+        </div>
+        <div data-role="content" class="detials_content">
+            <ul data-role="listview" data-inset="true" id="detailsLi">
+                <li data-role="list-divider">计划名称</li>
+                <li><span id="detailsPlanName">攻城师学习</span></li>
+                <li data-role="list-divider">开始时间</li>
+                <li><span id="detailsStartTime">2015年10月6日18:30:24</span></li>
+                <li data-role="list-divider">目标时间</li>
+                <li><span id="detailsPlanTime">1年(8760小时)</span></li>
+                <li data-role="list-divider">累计时间</li>
+                <li><span id="detailsTotalTime">187小时</span></li>
+                <br>
+                <li><a href="#record">前往打卡</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" class="footer" data-position="fixed">
+            <span>盛年不重来，一日难再晨。——陶渊明《杂诗》</span>
+        </div>
+    </section>
+    <!-- record -->
+    <section data-role="page" id="record" data-theme="a">
+        <div data-role="header" class="header" data-position="true">
+            <h1>打卡</h1>
+            <a href="#home">返回</a>
+        </div>
+        <div data-role="content" style="text-align: center;width:300px;margin:0 auto">
+            <div><b style="font-size:50px">计划名称</b>
+                <br/><span style="border:1px solid #6DB5EE;padding:0 5px;font-size:25px" id="recordPlanName">攻城师计划</span></div>
+            <div><b style="font-size:25px">打卡时间</b>
+                <br/><span style="border:1px solid #6DB5EE;padding:0 5px;font-size:25px" id="nowTime">2015年10月20号16:30</span></div>
+            <div data-role="navbar">
+                <ul>
+                    <li style="padding:5px"><a href="#" id="startCount" data-icon="startCount" onclick="sumAll()">开始</a></li>
+                    <li style="padding:5px"><a href="#" id="pauseCount" data-icon="pauseCount" onClick="clearTimeout(countToggle);flag=0">暂停</a></li>
+                    <li style="padding:5px"><a href="#" id="continueCount" data-icon="continueCount" onClick="continueCount()">继续</a></li>
+                </ul>
+            </div>
+            <div id="total_time"><b style="font-size:25px">计时</b>
+                <br/><span id="countAllSeconds">0秒</span></div>
+            <input type="button" value="停止" id="button_confirm" onClick="confirm_q(this)" />
+        </div>
+        <div data-role="footer" class="footer" data-position="fixed">
+            <span>举世皆浊我独清，众人皆醉我独醒。——《楚辞·渔父》</span>
+        </div>
+    </section>
+    <!-- about -->
+    <section data-role="page" id="about" data-theme="a" class="about">
+        <div data-role="header" class="header" data-position="true">
+            <h1>关于</h1>
+            <a href="#home">返回</a>
+            <button id="del_all_plan">重置</button>
+        </div>
+        <div data-role="content" class="detials_content">
+            <div style="margin:0 auto;text-align:center;padding:10px;margin-top:3em;">
+                <div class="contact_methods" style="padding:5px;">
+                    <p>赶快创建属于你的计划！</p>
+                    <p style="padding:20px;">QQ：214161398 </p>
+                    <p>邮箱：<a href="mailto:a214161398@hotmail.com">a214161398@hotmail.com</a></p>
+                    <p>github:<a href="http://pkjy.github.io">pkjy</a></p>
+                </div>
+                <div style="padding:5px;">
+                    <h2>版本：V1.16.0306</h2>
+                </div>
+                <div style="padding:5px;margin-top:2em">
+                    <p>基于HTML5+CSS3+jQuery Mobile</p>
+                    <p>
+                        <a href="http://jigsaw.w3.org/css-validator/">
+                            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" class="footer" data-position="fixed">
+            <!-- <a href="#" class="fl">图表</a> -->
+            <span>光景不待人，须叟发成丝。——李白·《相逢行》</span>
+            <!-- <a href="#settings"  class="fr setting" data-icon="gear" data-iconpos="notext">设置</a>   -->
+        </div>
+        <script type="text/javascript" src="js/Hours-min.js"></script>
+</body>
+
+</html>
