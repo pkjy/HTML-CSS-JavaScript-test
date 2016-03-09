@@ -1,0 +1,198 @@
+@charset "utf-8";
+/* CSS Document */
+
+.wrap
+{
+	width:1000px;
+	margin:0 auto;
+}
+.title
+{
+	margin:0 auto;
+	height:65px;}
+.title_right li
+{
+	float:left;
+	margin:0 auto;
+	font-size:20px;
+    line-height:45px;
+	list-style-type:none;}
+a
+{
+	text-decoration:none;
+}
+.title_right a
+{
+	display:inline-block;
+	padding:10px 20px;
+	color:#000}
+a:hover,a:active
+{
+	background-color:#bd3847
+}
+a:visited,a:link
+{
+	color:#000;
+}
+.title_left,.title_right
+{
+	float:left;
+}
+
+.picBox
+{
+	clear:both;
+	height:310px;
+	}
+	
+.loading{
+	width:1000px;
+	height:320px;
+	text-align:center;
+	line-height:320px;
+}
+.newbar_left
+{
+    width:150px;
+}
+.newbar_left,.newscenter_top a
+{
+	background-color:#bd3847;
+}
+
+.newbar_right
+{
+	width:850px;
+	background-color:#333;
+}
+.newbar_right a
+{
+	text-decoration:none;}
+.newbar_right a:visited,.newbar_righ a:link
+{
+	color:white;
+}
+.newbar_left,.newbar_right
+{
+	margin-top:20px;
+	color:white;
+	font-size:16px;
+	text-align:center;
+	line-height:35px;
+	float:left;
+	}
+	
+.int_left,.int_mid,.int_right
+{
+	float:left;
+	width:330px;
+	margin:20px 0;
+}
+.int_left a,.int_mid a,.int_right a
+{
+	display:block;
+	text-decoration:none;
+	text-align:center
+	}
+.int_left
+{
+	padding-right:5px;
+}
+.int_right
+{
+	padding-left:5px;
+}	
+.newscenter_top a
+{
+	display:inline-block;
+	width: 305px;
+	margin-top:20px;
+	color:white;
+	font-size:16px;
+    padding-left:20px;
+	line-height:35px;
+	}
+.newscenter_bottom p
+{
+	color:#666;
+	font-size:14px;}
+.newscenter li
+{
+	list-style-type:none;
+}
+.data
+{
+	clear:both;
+	background-color:#bd3847;
+	float:left;
+	width:60px;
+	height:50px;
+	margin:10px 15px 10px -40px;
+	text-align:center;
+	border-radius:5px;
+	color:white;
+	padding-top:10px;
+}	
+.data a
+{
+	font-size:10px;
+}
+
+.newscenter
+{
+	float:left;
+}
+
+.hotcontent img,.hotcontent a
+{
+	width:300px;
+    line-height:10px;}
+.hehe
+{
+	display:inline-block;
+	background-color:#bd3847;
+	width:310px;
+	margin-top:20px;
+	color:white;
+	font-size:16px;
+    padding-left:20px;
+	line-height:35px;
+}
+
+.contact
+{
+	clear:both;
+	background-color:#bd3847;
+	width:310px;
+	margin-top:20px;
+	color:white;
+	font-size:16px;
+    margin-left:5px;
+	padding-left:20px;
+	line-height:35px;
+	}
+.copyright
+{
+	clear:both;
+	text-align:center;
+	width:1000px;
+	background-color:#CCC;
+	line-height:50px;
+	margin:0 auto;}
+.youbian,.newscenter,.hot
+{
+	float:left;
+}
+.hotcontent
+{
+	text-align:left;
+	margin:20px 10px 5px 15px;
+}
+
+.contact p
+{
+	text-decoration:none;
+	}
+.inde
+{
+	margin-left:10px;}
