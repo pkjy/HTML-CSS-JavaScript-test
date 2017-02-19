@@ -25,6 +25,5 @@
 ![删除](images/delete_page.png)<p>▲delete▲</p>
 
 * * *
-####Attention
- --- 
-<P>No available for Edge yet</p>
+
+
