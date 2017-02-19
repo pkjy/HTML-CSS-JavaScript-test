@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<style type="text/css">
+ 		body{
+ 			background-color: #EFEFEF;
+ 		}
+ 		.container{
+ 			display: flex;
+ 			justify-content: space-around;
+ 			flex-wrap: wrap;
+ 		}
+ 		.introduction{
+ 			text-align: center;
+ 		}
+ 		.input-box{
+ 			text-align: center;
+ 		}
+ 		input{
+ 			display: inline-block;
+ 			margin:10px;
+ 		}
+ 	</style>
+ </head>
+ <body>
+ 	<div class="introduction">
+	 	<p>第一步，选择一张图片（图片分辨率越大，效果越出众。）</p>
+	 	<p>第二步，点击开始渲染</p>
+	 	<p>PS：屏幕分辨率小的建议把网页缩放为25%体验更佳。</p>
+ 	</div>
+ 	
+ 	<div class="input-box">
+ 		<input type="file" id="file-input">
+ 		<input type="button" id="startDraw" value="开始渲染" onclick="draw(30)">
+ 	</div>
+
+ 	<div class='container'>
+ 		<div id="preView"></div>
+ 		<div id="box"></div>
+ 	</div>
+ 	<script type="text/javascript">
+
+ 		function draw(piece){
+ 			var canvas = document.createElement("canvas");
+
+ 			if(canvas.getContext){
+ 				var context = canvas.getContext("2d");
+
+ 				var image = document.getElementById("uploadIMG");
+
+ 				canvas.width = image.width;
+ 				canvas.height =image.height;
+ 				document.getElementById("box").appendChild(canvas);
+
+ 				context.drawImage(image,0,0);
+
+ 				var tempW = image.width/piece;//除以10就是每个单元格的像素
+ 				var tempH = image.height/piece;
+ 				var tempArr = [];
+ 				
+				var imageData = context.getImageData(0,0,image.width,image.height);
+				var data = imageData.data;
+
+ 				var newArr = [];
+
+ 				var picWidth = image.width;
+				for(var x=2;x<image.width;x+=piece){
+					for(var y=2;y<image.height;y+=piece){
+						var firstPix = coor(x,y,picWidth);
+						var secondPix = coor(x,y,picWidth)+1;
+						var thirdPix = coor(x,y,picWidth)+2;
+						var fouthPix = coor(x,y,picWidth)+3;
+
+						newArr.push({
+							"red":data[firstPix],
+							"green":data[secondPix],
+							"blue":data[thirdPix],
+							"alpha":data[fouthPix]
+						})
+ 					}
+ 				}
+				var myCount =0;
+ 				for(var x=0;x<image.width;x+=piece){
+ 					for(var y=0;y<image.height;y+=piece){
+ 						try{
+ 							var color = "rgb("+newArr[myCount]["red"]+","+newArr[myCount]["green"]+","+newArr[myCount]["blue"]+")";
+ 							context.fillStyle= color;
+ 							context.fillRect(x,y,piece,piece);
+ 							context.fill();
+ 							myCount++;
+ 						}catch(error){
+ 						}
+ 					}
+ 				}
+ 				
+ 			}
+ 		}
+ 		
+ 		function coor (x,y,picWidth){//后面的乘4忘了，嫩是让我纠结了半天
+ 			return (picWidth*y+x)*4
+ 		}
+
+
+
+
+	 	function createObjectURL(blob){
+	 	    if (window.URL){
+	 	        return window.URL.createObjectURL(blob);
+	 	    } else if (window.webkitURL){
+	 	        return window.webkitURL.createObjectURL(blob);
+	 	    } else {
+	 	        return null;
+	 	    }
+	 	}
+ 		document.getElementById('file-input').addEventListener("change",function(){
+ 			document.getElementById("box").innerHTML = "";
+
+ 			var files = event.target.files
+ 			var Url = createObjectURL(files[0]);
+ 			if(Url){
+ 				if(/image/.test(files[0].type)){
+ 					document.getElementById('preView').innerHTML = "<img id='uploadIMG' src="+Url +"\>";
+ 				}else{
+ 					alert("请上传图片")
+ 				}
+ 			}else{
+ 				document.getElementById('preView').innerHTML = "该浏览器不支持object URLs,请更换浏览器再尝试。"
+ 			}
+ 		},false)
+ 	</script>
+ </body>
+ </html> 
