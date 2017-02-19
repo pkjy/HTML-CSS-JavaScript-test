@@ -117,6 +117,8 @@ function loadDetails(cursorKey) {
             $("#detailsStartTime").html(request.result.startTime);
             $("#detailsPlanTime").html(request.result.planTime + "小时");
             $("#detailsTotalTime").html(request.result.totalTime + "小时");
+            document.getElementById("detailsLi").lastElementChild.setAttribute("onclick","loadRecord(this)");
+            document.getElementById("detailsLi").lastElementChild.id = "haha"+request.result.planName;
         }
     }
 }
